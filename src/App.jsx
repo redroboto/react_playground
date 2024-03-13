@@ -3,7 +3,6 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Challenges } from "./Challenges.jsx";
-import { generateRandomId } from "./Create.jsx";
 import { CreateUser } from "./Create.jsx";
 
 function App() {

@@ -1,32 +1,19 @@
-import { useState } from "react";
+// import styles from "./create.css";
+import { useState, useRef } from "react";
 
-export function generateRandomId() {
-  return Math.floor(Math.random() * 1000000000);
-}
+// export function generateRandomId() {
+//   return Math.floor(Math.random() * 1000000000);
+// }
 
 // crypto.randomUUID
 
-// export function createUser(user, balance = 0, userId) {
-//   const [userInfo, setUserInfo] = useState([]);
-
-//   setUserInfo([
-//     ...userInfo,
-//     {
-//       user: user,
-//       balance: balance,
-//       userId: userId,
-//     },
-//   ]);
-// }
-
 export function CreateUser() {
-  const [userInfo, setUserInfo] = useState([
-    {
-      user: "",
-      balance: 0,
-      userId: "",
-    },
-  ]);
+  const [userInfo, setUserInfo] = useState({
+    user: "",
+    balance: "",
+    userId: "",
+  });
+  const userDatabase = useRef([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +22,9 @@ export function CreateUser() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    userDatabase.current.push(userInfo);
     console.log(userInfo);
+    console.log(userDatabase.current);
   };
 
   return (
